@@ -1,0 +1,2 @@
+# 周一到周五的19点25
+25 19 * * 1-5 python3 ~/adb_auto/adb_auto.py

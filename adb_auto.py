@@ -77,11 +77,11 @@ def run_qywx(x, y):
 if __name__ == '__main__':
     while 1:
         d=datetime.datetime.now()
-        w = d.isoweekday() # 判断是否为工作日
+        w = d.isoweekday() 
         h = d.hour
         m = d.minute
         logger.info("当前时间{}".format(d))
-        if w and h == 19 and m == 00:
+        if w not in (6,7) and h == 19 and m == 00:
             unlock(password)
             # run_wxxq()d
             run_qywx(x, y)

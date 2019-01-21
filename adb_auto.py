@@ -14,6 +14,12 @@ import time
 import re
 import sys
 import datetime
+import logging
+
+logging.basicConfig(level=logging.INFO,filename='./log',
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 
 ip = '10.10.9.189'
 password = '0805'
@@ -71,11 +77,11 @@ def run_qywx(x, y):
 if __name__ == '__main__':
     while 1:
         d=datetime.datetime.now()
-        w = d.weekday()
+        w = d.isoweekday() # 判断是否为工作日
         h = d.hour
         m = d.minute
-        print("当前时间{}".format(m))
-        if w not in (5,6) and h == 19 and m == 00:
+        logger.info("当前时间{}".format(d))
+        if w and h == 19 and m == 00:
             unlock(password)
             # run_wxxq()d
             run_qywx(x, y)

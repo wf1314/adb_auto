@@ -46,7 +46,7 @@ def unlock(password):
     os.system('adb shell input keyevent 224')  # 亮屏
     os.system('adb shell input swipe 300 1000 300 500')  # 滑动屏幕到输入密码页
     os.system('adb shell input text {}'.format(password))  # 输入密码,华为手机不需要点击确定
-    
+
 
 def run_qywx(x, y):
     """
